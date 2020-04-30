@@ -1,6 +1,6 @@
 import pandas as pd
 import matplotlib.pylab as plt
-import matplotlib.pyplot
+import matplotlib.pyplot as pyplot
 import numpy as np
 
 # Import data
@@ -104,27 +104,35 @@ df["height"] = df["height"] / df["height"].max()
 
 
 
-# #Binning. Lets make a plot of horsepower
-#
-# plt.pyplot.hist(df["horsepower"])
-#
-# plt.pyplot.xlabel("Horsepower")
-# plt.pyplot.ylabel("count")
-# plt.pyplot.title("Horsepower Distribution")
-#
-# # We want 5 bins (not a great split but just for an example it should suffice) instead of 57
-# bins = np.linspace(min(df["horsepower"]), max(df["horsepower"]), 6)
-#
-# groupNames = ["low", "low-med", "medium", "med-high", "high"]
-#
-# df['horsepower-binned'] = pd.cut(df['horsepower'], bins, labels=group_names, include_lowest=True )
-#
-# plt.pyplot.bar(group_names, df["horsepower-binned"].value_counts())
-#
-# # set x/y labels and plot title
-# plt.pyplot.xlabel("horsepower")
-# plt.pyplot.ylabel("count")
-# plt.pyplot.title("horsepower bins")
+#Binning. Lets make a plot of horsepower
+
+pyplot.hist(df["horsepower"])
+
+pyplot.xlabel("Horsepower")
+pyplot.ylabel("count")
+pyplot.title("Horsepower Distribution")
+
+pyplot.show()
+
+
+
+# We want 5 bins (not a great split but just for an example it should suffice) instead of 57
+bins = np.linspace(min(df["horsepower"]), max(df["horsepower"]), 6)
+
+groupNames = ["low", "low-med", "medium", "med-high", "high"]
+
+df['horsepower-binned'] = pd.cut(df['horsepower'], bins, labels=groupNames, include_lowest=True )
+
+pyplot.bar(groupNames, df["horsepower-binned"].value_counts())
+
+# set x/y labels and plot title
+pyplot.xlabel("horsepower")
+pyplot.ylabel("count")
+pyplot.title("horsepower bins")
+
+pyplot.show()
+
+
 
 
 # Indicator variable for categortical variable, fuel-type
